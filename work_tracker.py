@@ -1,5 +1,10 @@
-def addEmployeeHours():
+from pathlib import Path
 
+def addEmployeeHours():
+    print("--------------------------")
+    print("----ADD EMPLOYEE HOURS----")
+    print("--------------------------")
+    print()
     # declare the number of employees
     nbrEmployees = 7
     # declare employee data write list
@@ -88,7 +93,7 @@ def addEmployeeHours():
             print("You are working too hard!")
         print()
     
-    print("Test track")
+    print("*********************************")
     print("Weekly Employee Report")
     print("Number of employees who worked LESS than 30 hours: " + str(nbrEmployees_LessThan30Hrs))
     print("Number of employees who worked MORE than 40 hours: " + str(nbrEmployees_MoreThan40Hrs))
@@ -103,7 +108,113 @@ def addEmployeeHours():
     #close file object
     extFile.close()
 
-addEmployeeHours()
 # end of addEmployeeHours()
 
 # Function: getHoursWOrkedReport()
+
+def getHoursWorkedReport():
+    print("---------------------------")
+    print("----HOURS WORKED REPORT----")
+    print("---------------------------")
+    print()
+    # declear employee Data Read list
+    employeeData_Read = []
+    # read from homeTracker.csv
+    path = Path('./homeTracker.csv')
+    if path.is_file() == True:
+        extFile = open("homeTracker.csv", "r")
+    else:
+        print("------------NOTICE------------")
+        print("There are no hours logged yet!")
+        print("------------------------------")
+        return
+    # loop each line in the external file
+    for line in extFile:
+        #append line to empWork array (list)
+        if (len(line) > 0):
+            employeeData_Read.append(line.rstrip())
+    extFile.close()
+
+    #reverse sort the read-in list
+    employeeData_Read.reverse()
+    while True:
+        try:
+            nbrRecordsToDisplay = int(input("Enter number of records to display -> "))
+        except ValueError:
+            print("The input you have provided is invalid. Please try again.")
+            continue
+        else:
+            break
+    print()
+    print("Employee work data (sorted from most revent)")
+    print()
+    # check if records to display is not more than the list size
+    if (nbrRecordsToDisplay > len(employeeData_Read)):
+        nbrRecordsToDisplay = len(employeeData_Read)
+    
+    #display records
+    if (nbrRecordsToDisplay > 0):
+        for i in range(0, nbrRecordsToDisplay):
+            employeeData = employeeData_Read[i].split(",")
+            print(employeeData[0])
+            print("Employee ID: " + employeeData[1])
+            print("Employee name: " + employeeData[2])
+            print("Hours worked (Mon): " + employeeData[3])
+            print("Hours worked (Tue): " + employeeData[4])
+            print("Hours worked (Wed): " + employeeData[5])
+            print("Hours worked (Thu): " + employeeData[6])
+            print("Hours worked (Fri): " + employeeData[7])
+            print("---------------------------")
+    print()
+#end getHoursWorkedReport() Method
+
+#---------------------------------------------------
+#Method: main()
+# purpose: entry point to program
+# no input paramets or returns
+#----------------------------------------------------
+def main():
+    print("----------------------------------------------------")
+    print("--DIAMOND REALITY: EMPLOYEE WORK FROM HOME PROGRAM--")
+    print("----------------------------------------------------")
+
+    # create a variable that tracks menu option made by user
+    option = 1
+
+    # prompt user with options
+    while (option != 3):
+        print("Menu of options")
+        print("1. Enter daily hours worked")
+        print("2. Produce hours-worked report")
+        print("3. Exit")
+        print()
+        
+        while True:
+            try:    
+                option = int(input("Enter your option 1|2|3 -> "))
+            except ValueError:
+                print("Your input is invalid. Please try again.")
+                continue
+            if (option < 1) or (option > 3):
+                print("Please select an option between 1 and 3")
+                continue
+            else:
+                break
+    
+        #check option entered
+        if (option == 1):
+            addEmployeeHours()
+        elif (option == 2):
+            getHoursWorkedReport()
+        elif (option == 3):
+            print("Thank you for using this program")
+            break
+    # end of main()
+
+if __name__ == '__main__':
+    main()
+
+# see if you can make code that checks whether an existing work 
+# week can overwrite the current work week to avoid duplication
+# additionally see if you can prompt the user to go back in case
+# of an error
