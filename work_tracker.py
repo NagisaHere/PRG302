@@ -79,7 +79,7 @@ def addEmployeeHours():
         employeeData_Write.append(workStr)
 
         # Summary of work for each employee
-        print("Something idk")
+        print("**********************************")
         print("Summary of work for Employee " + employee_ID)
         for i in range(0, len(hoursWorked)):
             if (hoursWorked[i] < 4):
@@ -93,8 +93,8 @@ def addEmployeeHours():
             print("You are working too hard!")
         print()
     
-    print("*********************************")
-    print("Weekly Employee Report")
+    print("**********************************")
+    print("      Weekly Employee Report      ")
     print("Number of employees who worked LESS than 30 hours: " + str(nbrEmployees_LessThan30Hrs))
     print("Number of employees who worked MORE than 40 hours: " + str(nbrEmployees_MoreThan40Hrs))
     print("Number of employees who worked BETWEEN 37-39: " + str(nbrEmployees_Between37_39Hrs))
