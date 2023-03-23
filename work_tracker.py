@@ -100,6 +100,11 @@ def addEmployeeHours():
     print("Number of employees who worked BETWEEN 37-39: " + str(nbrEmployees_Between37_39Hrs))
     print()
     print()
+
+    # test the output data
+    #for i in range(0, len(employeeData_Write)):
+    #    print(employeeData_Write)
+
     # log to external file
     extFile = open("homeTracker.csv", "a")
     # loop through employee data and write each string to external file
@@ -137,6 +142,16 @@ def getHoursWorkedReport():
 
     #reverse sort the read-in list
     employeeData_Read.reverse()
+
+    # test the output data in employeeData_Read list to ensure that it is
+    # formatted with valid data
+    # for i in range(0, len(employeeData_Read)):
+    #     print(employeeData_Read[i])
+    #     TempWeekData = employeeData_Read[i].split(",")
+
+
+    # Prompt user for how many records they want to view
+    # While loop checks whether input is valid
     while True:
         try:
             nbrRecordsToDisplay = int(input("Enter number of records to display -> "))
