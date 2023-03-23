@@ -40,7 +40,7 @@ def addEmployeeHours():
 
         employee_ID = input("Enter Employee " + str(nbr) + " ID -> ")
         employee_name = input("Enter Employee " + str(nbr) + " Name -> ")
-        # I do not understand the next line lmao
+        # Put recurring information in a work string
         workStr = week_nbr + "," + employee_ID + "," + employee_name + ","
 
         # get hours for each day
