@@ -84,7 +84,7 @@ def addEmployeeHours():
         for i in range(0, len(hoursWorked)):
             if (hoursWorked[i] < 4):
                 print("Insufficient hours worked on " + dayList[i])
-            elif (hoursWorked[1] > 10):
+            elif (hoursWorked[i] > 10):
                 print ("Too many hours worked on " + dayList[i])
         print("Total hours worked for " + week_nbr + ": " + str(totalHoursWorked) + " hours.")
         if (totalHoursWorked < 30):
