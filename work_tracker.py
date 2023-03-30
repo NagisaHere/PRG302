@@ -30,15 +30,15 @@ def addEmployeeHours():
             break
     week_nbr = "Week {}".format(week_nbr_input)
     
-    # Check if Work week is already in the .csv file
-    path = Path('./homeTracker.csv')
-    if path.is_file() == True:
-        checkFile = open("homeTracker.csv", "r")
-        for line in checkFile:
-            if week_nbr in line:
-                print("This work week already exists.")
-                break
-        checkFile.close()
+    # # Check if Work week is already in the .csv file
+    # path = Path('./homeTracker.csv')
+    # if path.is_file() == True:
+    #     checkFile = open("homeTracker.csv", "r")
+    #     for line in checkFile:
+    #         if week_nbr in line:
+    #             print("This work week already exists.")
+    #             break
+    #     checkFile.close()
 
 
     for nbr in range(1, nbrEmployees+1):
