@@ -240,6 +240,7 @@ def main():
 if __name__ == '__main__':
     main()
 
+print("End")
 # see if you can make code that checks whether an existing work 
 # week can overwrite the current work week to avoid duplication
 # additionally see if you can prompt the user to go back in case
